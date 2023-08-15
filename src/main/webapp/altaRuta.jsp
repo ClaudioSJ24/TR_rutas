@@ -367,7 +367,7 @@ $(document).ready(function() {
               function CalcularDistancia(){
         var Origen = $("#origen").val();
         var Destino = $("#destino").val();
-        var Salida = $("#salida").val();
+        var Salida = $("#FSalida").val();
         if((Origen != "")&&(Destino != "")&&(Salida != "")){
             var directionService = new google.maps.DirectionsService;
 
@@ -387,7 +387,7 @@ $(document).ready(function() {
                     var partDate = partSalida[0].split("/");
                     var partTime = partSalida[1].split(":");
                     var FechaSalida = new Date(partDate[2], partDate[1] -1, partDate[0], partTime[0], partTime[1]);
-                    var FechaEstimadaLlegada = new Date(FechaSalida.getTime()+Duracion*1000);
+                    var FechaEstimadaLlegada = new Date(FechaSalida.getTime() + Duracion * 1000);
                     $("#FELlegada").val(moment(FechaEstimadaLlegada).format("DD/MM/YYYY HH:mm"));
                 }else{
                     swal("Error de Google", "Google no obtuvo datos", "warning");
@@ -419,7 +419,7 @@ $(document).ready(function() {
                       success: function(resp) {
 
                           console.log(resp);
-                          $('myModal').modal('hide');
+                          $('#myModal').modal('hide');
                           if ($("#txtEsOD").val() == 1) {
 
                               $("#idOrigen").val(resp.message);
